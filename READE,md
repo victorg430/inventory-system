@@ -1,0 +1,37 @@
+# Inventory Management System
+
+Flask REST API + CLI with OpenFoodFacts integration.
+
+## Setup
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+## Run Tests
+```bash
+pytest tests/ -v
+```
+
+## API
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/inventory` | Get all items |
+| GET | `/inventory/<id>` | Get one item |
+| POST | `/inventory` | Add item |
+| PATCH | `/inventory/<id>` | Update item |
+| DELETE | `/inventory/<id>` | Delete item |
+| GET | `/fetch-product?barcode=<code>` | Lookup from OpenFoodFacts |
+| GET | `/fetch-product?name=<name>&add=true` | Lookup and save |
+
+## CLI
+```bash
+python cli.py list
+python cli.py get 1
+python cli.py add
+python cli.py update 2
+python cli.py delete 3
+python cli.py fetch --barcode 0041196896005
+python cli.py fetch --name "almond milk" --add
+```
